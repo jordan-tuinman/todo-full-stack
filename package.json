@@ -73,6 +73,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.21.17",
+    "npm": "^7.6.2",
     "pg": "^8.5.1",
     "superagent": "^6.1.0"
   }
