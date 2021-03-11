@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const { getTodos, addTodo, deleteTodo, updateTodo } = require('../db')
+const db = require('../db')
 
 router.get('/todos', (req, res) => {
-  getTodos()
+  db.getTodos()
     .then((todos) => {
-      res.json(todos).sendStatus(200)
+      res.sendStatus(200).json(todos)
       return null
     })
     .catch(err => console.log(err))
@@ -15,12 +15,11 @@ router.get('/todos', (req, res) => {
 router.post('/todos', (req, res) => {
   const todo = req.body
   console.log('route', req.body)
-  addTodo(todo)
+  db.addTodo(todo)
     .then(todo => {
-      console.log(todo[0])
-      return null
+      return db.findTodo(todo[0])
     })
-    .then((newTodo) => {
+    .then(newTodo => {
       res.sendStatus(201).json(newTodo)
       return null
     })
@@ -29,7 +28,7 @@ router.post('/todos', (req, res) => {
 
 router.delete('/todos/:id', (req, res) => {
   const { id } = req.params
-  deleteTodo(id)
+  db.deleteTodo(id)
     .then(() => {
       res.sendStatus(202)
       return null

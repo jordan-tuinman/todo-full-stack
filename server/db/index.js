@@ -1,5 +1,9 @@
 const database = require('./connection')
 
+function findTodo (id, db = database) {
+  return db('todos').where('id', id).select()
+}
+
 function getTodos (db = database) {
   return db('todos').select()
 }
@@ -22,6 +26,7 @@ function updateTodo (id, newData, db = database) {
 }
 
 module.exports = {
+  findTodo,
   getTodos,
   addTodo,
   deleteTodo,
