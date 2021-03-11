@@ -1,19 +1,23 @@
-const connection = require('./connection')
 const database = require('./connection')
 
 function getTodos (db = database) {
   return db('todos').select()
 }
 
-function addTodo (todo, db = connection) {
-  return db('todos').insert({ todo })
+function addTodo (newTodo, db = database) {
+  const { todo, state, complete } = newTodo
+  return db('todos').insert({
+    todo: todo,
+    state: state,
+    complete: complete
+  })
 }
 
-function deleteTodo (id, db = connection) {
+function deleteTodo (id, db = database) {
   return db('todos').where('id', id).delete()
 }
 
-function updateTodo (id, newData, db = connection) {
+function updateTodo (id, newData, db = database) {
   return db('todos').where('id', id).update(newData)
 }
 

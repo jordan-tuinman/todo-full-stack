@@ -12,7 +12,20 @@ router.get('/todos', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// router.post()
+router.post('/todos', (req, res) => {
+  const todo = req.body
+  console.log('route', req.body)
+  addTodo(todo)
+    .then(todo => {
+      console.log(todo[0])
+      return null
+    })
+    .then((newTodo) => {
+      res.sendStatus(201).json(newTodo)
+      return null
+    })
+    .catch(err => res.sendStatus(500).send(err.message))
+})
 
 router.delete('/todos/:id', (req, res) => {
   const { id } = req.params
