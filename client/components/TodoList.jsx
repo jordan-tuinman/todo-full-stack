@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 // TODO: Hide section when no todos
 // TODO: connect to redux store state
 
-function TodoList () {
+function TodoList ({ todos }) {
+  console.log(todos)
   return (
     <>
       <section className="main">
@@ -11,7 +13,7 @@ function TodoList () {
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {/* Below code returns li for each todo */}
-          {/* {todos?.map((item) => {
+          {todos?.map((item) => {
             return (
               <li key={item.id} className={item.state}>
                 <div className="view">
@@ -22,7 +24,7 @@ function TodoList () {
                 <input className="edit" value="Create a TodoMVC template" />
               </li>
             )
-          })} */}
+          })}
 
           {/* Example list items */}
           {/* List items should get the class `editing` when editing and `completed` when marked as completed */}
@@ -48,4 +50,10 @@ function TodoList () {
   )
 }
 
-export default TodoList
+function mapStateToProps (state) {
+  return {
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps)(TodoList)
