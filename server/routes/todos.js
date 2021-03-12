@@ -36,6 +36,14 @@ router.delete('/todos/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// router.patch()
+router.patch('/todos', (req, res) => {
+  const updateData = req.body
+  db.updateTodo(updateData)
+    .then(() => {
+      res.sendStatus(202)
+      return null
+    })
+    .catch(err => console.log('route', err.message))
+})
 
 module.exports = router
