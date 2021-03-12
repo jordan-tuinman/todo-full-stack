@@ -3,9 +3,11 @@ import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import DetailsBar from './DetailsBar'
 
+import { getTodos } from '../apis'
+
 function App () {
   useEffect(() => {
-
+    getTodos()
   }, [])
 
   return (

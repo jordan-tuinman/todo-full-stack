@@ -1,8 +1,12 @@
 import request from 'superagent'
 
-// export function getTodos () {
-
-// }
+export function getTodos () {
+  request.get('/todos')
+    .then((res) => {
+      return res.body
+    })
+    .catch(err => console.log(err.message))
+}
 
 // export function addTodo () {
 

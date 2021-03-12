@@ -6,7 +6,7 @@ const db = require('../db')
 router.get('/todos', (req, res) => {
   db.getTodos()
     .then((todos) => {
-      res.sendStatus(200).json(todos)
+      res.json(todos)
       return null
     })
     .catch(err => res.sendStatus(500).send(err.message))
@@ -19,7 +19,7 @@ router.post('/todos', (req, res) => {
       return db.findTodo(todo[0])
     })
     .then(newTodo => {
-      res.sendStatus(201).json(newTodo)
+      res.json(newTodo)
       return null
     })
     .catch(err => res.sendStatus(500).send(err.message))

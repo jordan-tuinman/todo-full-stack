@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // TODO: Hide section when no todos
-// TODO: connect to redux store state
 
 function TodoList ({ todos }) {
   console.log(todos)
