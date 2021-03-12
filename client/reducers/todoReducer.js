@@ -1,18 +1,20 @@
-const sample = [
-  {
-    id: 47,
-    todo: 'Sample todo',
-    state: 'active',
-    complete: false
-  }
-]
+// const sample = [
+//   {
+//     id: 47,
+//     todo: 'Sample todo',
+//     state: 'active',
+//     complete: false
+//   }
+// ]
 
-export function todoReducer (state = sample, action) {
+const todoReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_TODOS':
-      return action.state
+      return action.todos
 
     default:
       return state
   }
 }
+
+export default todoReducer

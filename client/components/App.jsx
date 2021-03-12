@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import DetailsBar from './DetailsBar'
 
-import { getTodos } from '../apis'
+import { setTodos } from '../actions'
 
-function App () {
+function App ({ dispatch }) {
   useEffect(() => {
-    getTodos()
+    dispatch(setTodos())
   }, [])
 
   return (
@@ -24,4 +26,4 @@ function App () {
   )
 }
 
-export default App
+export default connect()(App)

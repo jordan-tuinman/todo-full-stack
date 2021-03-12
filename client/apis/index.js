@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 export function getTodos () {
-  request.get('/todos')
+  return request.get('/todos')
     .then((res) => {
       return res.body
     })
