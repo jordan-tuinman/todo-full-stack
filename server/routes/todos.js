@@ -9,12 +9,11 @@ router.get('/todos', (req, res) => {
       res.sendStatus(200).json(todos)
       return null
     })
-    .catch(err => console.log(err))
+    .catch(err => res.sendStatus(500).send(err.message))
 })
 
 router.post('/todos', (req, res) => {
   const todo = req.body
-  console.log('route', req.body)
   db.addTodo(todo)
     .then(todo => {
       return db.findTodo(todo[0])
@@ -33,7 +32,7 @@ router.delete('/todos/:id', (req, res) => {
       res.sendStatus(202)
       return null
     })
-    .catch(err => console.log(err))
+    .catch(err => res.sendStatus(500).send(err.message))
 })
 
 router.patch('/todos', (req, res) => {
@@ -43,7 +42,7 @@ router.patch('/todos', (req, res) => {
       res.sendStatus(202)
       return null
     })
-    .catch(err => console.log('route', err.message))
+    .catch(err => res.sendStatus(500).send(err.message))
 })
 
 module.exports = router
