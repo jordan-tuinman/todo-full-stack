@@ -12,14 +12,14 @@ export function getTodos () {
 
 // }
 
-export function patchTodo (id, todoUpdates) {
-  return request.patch(`/todos/${id}`)
+export function patchTodo (todoUpdates) {
+  return request.patch('/todos')
     .send(todoUpdates)
     .then((res) => {
       console.log('api', res.body)
       return res.body
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.message))
 }
 
 export function deleteTodo (id) {

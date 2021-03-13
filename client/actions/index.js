@@ -1,4 +1,4 @@
-import { getTodos, deleteTodo } from '../apis'
+import { getTodos, deleteTodo, patchTodo } from '../apis'
 
 export const setTodosState = (todos) => {
   return {
@@ -30,6 +30,24 @@ export const removeTodo = (id) => {
     deleteTodo(id)
       .then(() => {
         dispatch(deleteTodoState(id))
+        return null
+      })
+      .catch(err => console.log(err.message))
+  }
+}
+
+export const updateTodoState = (todo) => {
+  return {
+    type: 'UPDATE_TODO',
+    todo
+  }
+}
+
+export const updateTodo = (todoUpdates) => {
+  return dispatch => {
+    patchTodo(todoUpdates)
+      .then(() => {
+        dispatch(updateTodoState(todoUpdates))
         return null
       })
       .catch(err => console.log(err.message))
