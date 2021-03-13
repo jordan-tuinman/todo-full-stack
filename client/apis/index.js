@@ -12,9 +12,14 @@ export function getTodos () {
 
 // }
 
-// export function updateTodo () {
-
-// }
+export function updateTodo (id) {
+  return request.update(`/todos/${id}`)
+    .then((res) => {
+      console.log('api', res.body)
+      return res.body
+    })
+    .catch(err => console.log(err))
+}
 
 export function deleteTodo (id) {
   return request.delete(`/todos/${id}`)

@@ -6,6 +6,7 @@ function DetailsBar () {
   return (
     <>
       <footer className="footer">
+        {/* TODO: add todo count logic */}
         <span className="todo-count"><strong>0</strong> item left</span>
         <ul className="filters">
           <li>
