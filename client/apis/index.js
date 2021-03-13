@@ -12,8 +12,9 @@ export function getTodos () {
 
 // }
 
-export function updateTodo (id) {
-  return request.update(`/todos/${id}`)
+export function patchTodo (id, todoUpdates) {
+  return request.patch(`/todos/${id}`)
+    .send(todoUpdates)
     .then((res) => {
       console.log('api', res.body)
       return res.body

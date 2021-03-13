@@ -21,8 +21,8 @@ function deleteTodo (id, db = database) {
   return db('todos').where('id', id).delete()
 }
 
-function updateTodo (updateData, db = database) {
-  const { id, todo, state, complete } = updateData
+function updateTodo (todoUpdates, db = database) {
+  const { id, todo, state, complete } = todoUpdates
   return db('todos').where('id', id).update({
     todo: todo,
     state: state,

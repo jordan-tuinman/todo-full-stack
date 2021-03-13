@@ -36,8 +36,8 @@ router.delete('/todos/:id', (req, res) => {
 })
 
 router.patch('/todos', (req, res) => {
-  const updateData = req.body
-  db.updateTodo(updateData)
+  const todoUpdates = req.body
+  db.updateTodo(todoUpdates)
     .then(() => {
       res.sendStatus(202)
       return null
