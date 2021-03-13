@@ -5,7 +5,6 @@ import TodoListItem from './TodoListItem'
 // TODO: Hide section when no todos
 
 function TodoList ({ todos }) {
-  console.log(todos)
   return (
     <>
       <section className="main">

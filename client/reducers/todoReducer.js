@@ -3,6 +3,9 @@ const todoReducer = (state = [], action) => {
     case 'GET_TODOS':
       return action.todos
 
+    case 'DELETE_TODO':
+      return state.filter(item => item.id !== action.id)
+
     default:
       return state
   }

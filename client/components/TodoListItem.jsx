@@ -1,13 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-import { deleteTodo } from '../apis'
+import { removeTodo } from '../actions'
 
-function TodoListItem (props) {
-  const { todo } = props
-  console.log(todo)
-
+function TodoListItem ({ dispatch, todo }) {
   function handleDelete () {
-    deleteTodo(todo.id)
+    dispatch(removeTodo(todo.id))
   }
 
   return (
@@ -22,4 +20,4 @@ function TodoListItem (props) {
   )
 }
 
-export default TodoListItem
+export default connect()(TodoListItem)
