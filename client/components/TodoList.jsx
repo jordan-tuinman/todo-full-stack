@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import TodoListItem from './TodoListItem'
 
 // TODO: Hide section when no todos
 
@@ -11,17 +12,9 @@ function TodoList ({ todos }) {
         <input id="toggle-all" className="toggle-all" type="checkbox" />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          {/* Below code returns li for each todo */}
-          {todos?.map((item) => {
+          {todos.map((item) => {
             return (
-              <li key={item.id} className={item.state}>
-                <div className="view">
-                  <input className="toggle" type="checkbox" />
-                  <label>{item.todo}</label>
-                  <button className="destroy"></button>
-                </div>
-                <input className="edit" value="Create a TodoMVC template" />
-              </li>
+              < TodoListItem key={item.id} todo={item}/>
             )
           })}
         </ul>

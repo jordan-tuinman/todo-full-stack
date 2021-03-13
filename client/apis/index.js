@@ -16,6 +16,10 @@ export function getTodos () {
 
 // }
 
-// export function deleteTodo () {
-
-// }
+export function deleteTodo (id) {
+  return request.delete(`/todos/${id}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch(err => console.log(err.message))
+}
