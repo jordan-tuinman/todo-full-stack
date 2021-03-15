@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { removeTodo, updateTodo } from '../actions'
 
 function TodoListItem ({ dispatch, todo }) {
-  // SetTodoUpdates to new toggled state
-  // Dispatch updateTodo action to update state and DB
   function handleToggle (evt) {
     dispatch(updateTodo(todo.id, { complete: String(evt.target.checked) }))
   }
