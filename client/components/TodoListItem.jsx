@@ -14,8 +14,9 @@ function TodoListItem ({ dispatch, todo }) {
     dispatch(removeTodo(todo.id))
   }
 
+  const todoState = (todo.complete === 'true' ? 'completed' : 'active')
   return (
-    <li key={todo.id} className={todo.state}>
+    <li key={todo.id} className={todoState}>
       <div className="view">
         <input className="toggle" type="checkbox" onClick={handleToggle} />
         <label>{todo.todo}</label>
