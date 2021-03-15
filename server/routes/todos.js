@@ -35,12 +35,12 @@ router.delete('/todos/:id', (req, res) => {
     .catch(err => res.sendStatus(500).send(err.message))
 })
 
-router.patch('/todos', (req, res) => {
+router.patch('/todos/:id', (req, res) => {
+  const { id } = req.params
   const todoUpdates = req.body
-  db.updateTodo(todoUpdates)
-    .then(() => {
-      res.sendStatus(202)
-      return null
+  db.updateTodo(id, todoUpdates)
+    .then((todo) => {
+      return res.json(todo[0])
     })
     .catch(err => res.sendStatus(500).send(err.message))
 })

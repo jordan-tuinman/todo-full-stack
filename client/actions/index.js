@@ -43,11 +43,11 @@ export const updateTodoState = (todo) => {
   }
 }
 
-export const updateTodo = (todoUpdates) => {
+export const updateTodo = (id, todoUpdates) => {
   return dispatch => {
-    patchTodo(todoUpdates)
-      .then(() => {
-        dispatch(updateTodoState(todoUpdates))
+    patchTodo(id, todoUpdates)
+      .then(todo => {
+        dispatch(updateTodoState(todo))
         return null
       })
       .catch(err => console.log(err.message))
