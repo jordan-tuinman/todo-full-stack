@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 function DetailsBar ({ todos }) {
   const activeTodos = todos.filter(item => item.complete !== 'true')
-  const completedTodo = todos.some(item => item.complete === 'true')
+  const completedTodos = todos.some(item => item.complete === 'true')
   return (
     <>
       {todos.length === 0
@@ -21,7 +21,7 @@ function DetailsBar ({ todos }) {
               <a href="/completed">Completed</a>
             </li>
           </ul>
-          {completedTodo
+          {completedTodos
             ? <button className="clear-completed">Clear completed</button>
             : <></>
           }
