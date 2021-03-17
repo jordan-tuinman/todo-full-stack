@@ -21,7 +21,6 @@ function App ({ dispatch }) {
         <DetailsBar />
       </header>
       <section className="main"></section>
-      <footer className="footer"></footer>
     </>
   )
 }
