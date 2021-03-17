@@ -1,9 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { removeTodo } from '../actions'
 
-function DetailsBar ({ todos }) {
+function DetailsBar ({ dispatch, todos }) {
   const activeTodos = todos.filter(item => item.complete !== 'true')
   const completedTodos = todos.filter(item => item.complete === 'true')
+
+  function handleClear () {
+    console.log(completedTodos)
+    completedTodos.forEach(item => {
+      dispatch(removeTodo(item.id))
+    })
+  }
 
   return (
     <>
@@ -23,7 +31,7 @@ function DetailsBar ({ todos }) {
             </li>
           </ul>
           {completedTodos.length > 0
-            ? <button className="clear-completed">Clear completed</button>
+            ? <button onClick={handleClear} className="clear-completed">Clear completed</button>
             : <></>
           }
         </footer> }
