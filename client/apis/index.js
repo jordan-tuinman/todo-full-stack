@@ -8,9 +8,14 @@ export function getTodos () {
     .catch(err => console.log(err.message))
 }
 
-// export function addTodo () {
-
-// }
+export function addTodo (todo) {
+  return request.post('/todos')
+    .send(todo)
+    .then((res) => {
+      return res.body
+    })
+    .catch(err => console.log(err.message))
+}
 
 export function patchTodo (id, patchData) {
   return request.patch(`/todos/${id}`)
