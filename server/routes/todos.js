@@ -19,7 +19,7 @@ router.post('/todos', (req, res) => {
       return db.findTodo(todo[0])
     })
     .then(newTodo => {
-      res.json(newTodo)
+      res.json(newTodo[0])
       return null
     })
     .catch(err => res.sendStatus(500).send(err.message))
