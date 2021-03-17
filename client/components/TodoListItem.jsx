@@ -16,7 +16,7 @@ function TodoListItem ({ dispatch, todo }) {
   return (
     <li key={todo.id} className={todoState}>
       <div className="view">
-        <input className="toggle" type="checkbox" onClick={handleToggle} />
+        <input className="toggle" type="checkbox" onClick={handleToggle} defaultChecked={JSON.parse(todo.complete)}/>
         <label>{todo.todo}</label>
         <button className="destroy" onClick={handleDelete}></button>
       </div>
