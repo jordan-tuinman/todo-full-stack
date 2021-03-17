@@ -2,16 +2,24 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TodoListItem from './TodoListItem'
 
+import { updateTodo } from '../actions'
+
 // TODO: Hide section when no todos
 
-function TodoList ({ todos }) {
+function TodoList ({ dispatch, todos }) {
+  function toggleComplete () {
+    todos.forEach(todo => {
+      dispatch(updateTodo(todo.id, { complete: 'true' }))
+    })
+  }
+
   return (
     <>
       <section className="main">
         <input id="toggle-all" className="toggle-all" type="checkbox" />
-        <label htmlFor="toggle-all">Mark all as complete</label>
+        <label onClick={toggleComplete} htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          {todos.map((item) => {
+          {todos?.map((item) => {
             return (
               < TodoListItem key={item.id} todo={item}/>
             )

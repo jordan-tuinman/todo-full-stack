@@ -6,7 +6,6 @@ import { removeTodo, updateTodo } from '../actions'
 function TodoListItem ({ dispatch, todo }) {
   const [todoEdit, setEdit] = useState({
     todo: todo.todo,
-    complete: todo.complete,
     edit: false
   })
 
@@ -27,7 +26,6 @@ function TodoListItem ({ dispatch, todo }) {
     dispatch(updateTodo(todo.id, { todo: todoEdit.todo }))
     setEdit({
       todo: todoEdit.todo,
-      complete: todo.complete,
       edit: false
     })
   }
