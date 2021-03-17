@@ -12,7 +12,6 @@ function addTodo (newTodo, db = database) {
   const { todo, state, complete } = newTodo
   return db('todos').insert({
     todo: todo,
-    state: state,
     complete: complete
   })
 }
