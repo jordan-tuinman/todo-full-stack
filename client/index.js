@@ -11,8 +11,6 @@ import App from './components/App'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
 
-// TODO: Add browser router
-
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>

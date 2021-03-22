@@ -1,19 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeTodo } from '../actions'
 
-function DetailsBar ({ dispatch, todos }) {
+function DetailsBar ({ dispatch, todos, location }) {
   const activeTodos = todos.filter(item => item.complete !== 'true')
   const completedTodos = todos.filter(item => item.complete === 'true')
 
   function handleClear () {
-    console.log(completedTodos)
     completedTodos.forEach(item => {
       dispatch(removeTodo(item.id))
     })
   }
-  // TODO: look at button class - selected
+
   return (
     <>
       {todos.length === 0
@@ -22,13 +21,13 @@ function DetailsBar ({ dispatch, todos }) {
           <span className="todo-count"><strong>{activeTodos.length}</strong> item left</span>
           <ul className="filters">
             <li>
-              <Link className="selected" to="/">All</Link>
+              <NavLink activeClassName="selected" exact to="/">All</NavLink>
             </li>
             <li>
-              <Link to="/active">Active</Link>
+              <NavLink activeClassName="selected" to="/active">Active</NavLink>
             </li>
             <li>
-              <Link to="/completed">Completed</Link>
+              <NavLink activeClassName="selected" to="/completed">Completed</NavLink>
             </li>
           </ul>
           {completedTodos.length > 0
