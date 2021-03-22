@@ -4,7 +4,7 @@ import TodoListItem from './TodoListItem'
 
 import { updateTodo } from '../actions'
 
-function TodoList ({ dispatch, todos }) {
+function CompletedList ({ dispatch, todos }) {
   function toggleComplete () {
     todos.forEach(todo => {
       dispatch(updateTodo(todo.id, { complete: 'true' }))
@@ -18,9 +18,11 @@ function TodoList ({ dispatch, todos }) {
         <label onClick={toggleComplete} htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {todos?.map((item) => {
-            return (
-              <TodoListItem key={item.id} todo={item}/>
-            )
+            if (item.complete === 'true') {
+              return (
+                <TodoListItem key={item.id} todo={item}/>
+              )
+            }
           })}
         </ul>
       </section>
@@ -34,4 +36,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(TodoList)
+export default connect(mapStateToProps)(CompletedList)

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
+import CompletedList from './CompletedList'
 import DetailsBar from './DetailsBar'
 
 import { setTodos } from '../actions'
@@ -18,6 +19,7 @@ function App ({ dispatch }) {
         <h1>todos...</h1>
         <AddTodo />
         <TodoList />
+        {/* <CompletedList /> */}
         <DetailsBar />
       </header>
       <section className="main"></section>
