@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeTodo } from '../actions'
 
@@ -12,7 +13,7 @@ function DetailsBar ({ dispatch, todos }) {
       dispatch(removeTodo(item.id))
     })
   }
-
+  // TODO: look at button class - selected
   return (
     <>
       {todos.length === 0
@@ -21,13 +22,13 @@ function DetailsBar ({ dispatch, todos }) {
           <span className="todo-count"><strong>{activeTodos.length}</strong> item left</span>
           <ul className="filters">
             <li>
-              <a className="selected" href="/">All</a>
+              <Link className="selected" to="/">All</Link>
             </li>
             <li>
-              <a href="/active">Active</a>
+              <Link to="/active">Active</Link>
             </li>
             <li>
-              <a href="/completed">Completed</a>
+              <Link to="/completed">Completed</Link>
             </li>
           </ul>
           {completedTodos.length > 0
