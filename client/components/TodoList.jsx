@@ -7,7 +7,6 @@ import { updateTodo } from '../actions'
 function TodoList ({ dispatch, todos }) {
   function toggleComplete () {
     todos.forEach(todo => {
-      console.log(todo.complete)
       dispatch(updateTodo(todo.id, { complete: todo.complete === 'true' ? 'false' : 'true' }))
     })
   }
