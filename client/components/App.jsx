@@ -19,7 +19,7 @@ function App ({ dispatch }) {
   return (
     <>
       <header className="header">
-        <h1>todos...</h1>
+        <h1>todos.</h1>
         <Route path="/" component={AddTodo} />
         <Switch>
           <Route exact path="/" component={TodoList} />

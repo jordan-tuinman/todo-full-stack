@@ -39,7 +39,7 @@ function TodoListItem ({ dispatch, todo }) {
   return (
     <li key={todo.id} className={todoState}>
       <div className="view">
-        <input className="toggle" type="checkbox" onClick={handleCheck} defaultChecked={JSON.parse(todo.complete)}/>
+        <input className="toggle" type="checkbox" onClick={handleCheck} checked={JSON.parse(todo.complete)}/>
         {!todoEdit.edit && <label onDoubleClick={toggleEdit}>{todo.todo}</label>}
         <button className="destroy" onClick={handleDelete}></button>
       </div>
