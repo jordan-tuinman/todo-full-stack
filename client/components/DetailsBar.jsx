@@ -18,20 +18,20 @@ function DetailsBar ({ dispatch, todos, location }) {
       {todos.length === 0
         ? <></>
         : <footer className="footer">
-          <span className="todo-count"><span style={{ fontWeight: 800 }}>{activeTodos.length}</span>{activeTodos.length === 1 ? ' item left' : ' items left'}</span>
+          <span className="todo-count"><span style={{ fontWeight: 800 }}>{activeTodos.length}</span>{activeTodos.length === 1 ? ' item left.' : ' items left.'}</span>
           <ul className="filters">
             <li>
-              <NavLink activeClassName="selected" exact to="/">All</NavLink>
+              <NavLink activeClassName="selected" exact to="/">all</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" to="/active">Active</NavLink>
+              <NavLink activeClassName="selected" to="/active">active</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" to="/completed">Completed</NavLink>
+              <NavLink activeClassName="selected" to="/completed">completed</NavLink>
             </li>
           </ul>
           {completedTodos.length > 0
-            ? <button onClick={handleClear} className="clear-completed">Clear completed</button>
+            ? <button onClick={handleClear} className="clear-completed">clear completed.</button>
             : <></>
           }
         </footer> }

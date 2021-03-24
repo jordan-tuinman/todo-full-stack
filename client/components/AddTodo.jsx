@@ -20,7 +20,7 @@ function AddTodo ({ dispatch }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} className="new-todo" value={newTodo.todo} placeholder="What do you need to do?" autoFocus={true} />
+      <input onChange={handleChange} className="new-todo" value={newTodo.todo} placeholder="what do you need to do?" autoFocus={true} />
     </form>
   )
 }
