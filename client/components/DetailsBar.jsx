@@ -18,7 +18,7 @@ function DetailsBar ({ dispatch, todos, location }) {
       {todos.length === 0
         ? <></>
         : <footer className="footer">
-          <span className="todo-count"><strong>{activeTodos.length}</strong> item left</span>
+          <span className="todo-count"><span style={{ fontWeight: 800 }}>{activeTodos.length}</span>{activeTodos.length === 1 ? ' item left' : ' items left'}</span>
           <ul className="filters">
             <li>
               <NavLink activeClassName="selected" exact to="/">All</NavLink>
